@@ -132,7 +132,6 @@ buffers/
 data/
 logged_files/
 wandb/
-docs/
 
 # Sandbox
 sandbox.ipynb
