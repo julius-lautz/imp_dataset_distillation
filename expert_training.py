@@ -12,7 +12,7 @@ warnings.filterwarnings("ignore", category=DeprecationWarning)
 def main(args):
 
     args.dsa = True if args.dsa == "True" else False
-    args.device = "cude" if torch.cuda.is_available() else "cpu"
+    args.device = "cuda" if torch.cuda.is_available() else "cpu"
     args.dsa_param = ParamDiffAug()
 
     channel, im_size, num_classes, class_names, mean, std, dst_train, dst_test, testloader, loader_train_dict, class_map, class_map_inv = get_full_dataset(args.dataset, args.data_path, args.batch_real, args=args)
@@ -48,7 +48,8 @@ def main(args):
 
     trajectories = []
 
-    trainloader = torch.utils.data.DataLoader(dst_train, batch_size=args.batch_train, shuffle=True, num_workers=2)
+    dst_train = TensorDataset(copy.deepcopy(images_all.detach()), copy.deepcopy(labels_all.detach()))
+    trainloader = torch.utils.data.DataLoader(dst_train, batch_size=args.batch_train, shuffle=True, num_workers=0)
 
     ### Set augmentations for whole dataset ###
     args.dc_aug_param = get_deparam(args.dataset, args.model, args.model, None)
@@ -78,6 +79,7 @@ def main(args):
             print("Iteration: {}\tEpoch: {}\tTrainAcc: {}\tTest Acc: {}".format(it, e, train_acc, test_acc))
 
             timestamps.append([p.detach().cpu() for p in teacher_net.parameters()])
+            print(timestamps[e][0][0])
 
             if e in lr_schedule and args.decay:
                 lr *= 0.1
@@ -93,6 +95,8 @@ def main(args):
             print("Saving {}".format(os.path.join(save_dir, "replay_buffer_{}.pt".format(n))))
             torch.save(trajectories, os.path.join(save_dir, "replay_buffer_{}.pt".format(n)))
             trajectories = []
+
+
 
 
 if __name__== "__main__":
