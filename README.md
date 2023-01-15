@@ -44,21 +44,6 @@ python distillation.py --dataset=EuroSAT --ipc=1 --syn_steps=20 --expert_epochs=
     Tongzhou Wang et al. <a href="https://ssnl.github.io/dataset_distillation/">"Dataset Distillation"</a>, in arXiv preprint 2018
 </li>
 <li>
-    Bo Zhao et al. <a href="https://arxiv.org/abs/2006.05929">"Dataset Condensation with Gradient Matching"</a>, in ICLR 2020
-</li>
-<li>
-    Bo Zhao and Hakan Bilen. <a href="https://arxiv.org/abs/2102.08259">"Dataset Condensation with Differentiable Siamese Augmentation"</a>, in ICML 2021
-</li>
-<li>
-    Timothy Nguyen et al. <a href="https://arxiv.org/abs/2011.00050">"Dataset Meta-Learning from Kernel Ridge-Regression"</a>, in ICLR 2021
-</li>
-<li>
-    Timothy Nguyen et al. <a href="https://arxiv.org/abs/2107.13034">"Dataset Distillation with Infinitely Wide Convolutional Networks"</a>, in NeurIPS 2021
-</li>
-<li>
-    Bo Zhao and Hakan Bilen. <a href="https://arxiv.org/abs/2110.04181">"Dataset Condensation with Distribution Matching"</a>, in arXiv preprint 2021
-</li>
-<li>
-    Kai Wang et al. <a href="https://arxiv.org/abs/2203.01531">"CAFE: Learning to Condense Dataset by Aligning Features"</a>, in CVPR 2022
+    Helber et al. <a href="">"EuroSAT: A novel dataset and deep learning benchmark for land use and land cover classification"</a>, in IEEE Journal of Selected Topics in Applied Earth Observation and Remote Sensing 2019
 </li>
 </ol>
