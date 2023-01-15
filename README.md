@@ -15,7 +15,7 @@ cd imp_dataset_distillation
 
 Then, you can install all dependencies with the following command:
 ```bash
-pip install -r requirements.txt
+pip -r requirements.txt
 ```
 
 ### Generating Expert Trajectories
