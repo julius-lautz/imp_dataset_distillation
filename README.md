@@ -21,16 +21,16 @@ pip -r requirements.txt
 ### Generating Expert Trajectories
 Before doing any distillation, you'll need to generate some expert trajectories using ```expert_trajectories.py```
 
-The following command will train 100 ConvNet models on EuroSAT with ZCA whitening for 50 epochs each:
+The following command will train 100 ConvNet models on EuroSAT for 50 epochs each:
 ```bash
-python expert_trajectories.py --dataset=EuroSAT --model=ConvNet --train_epochs=50 --num_experts=100 --zca --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
+python expert_trajectories.py --dataset=EuroSAT --model=ConvNet --train_epochs=50 --num_experts=100 --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
 ```
 The other models available are an MLP and a ResNet18 (set model to either ```--model="MLP"``` or ```--model="ResNet"```).
 
 ### Distillation by Matching Training Trajectories
 The following command will then use the expert trajectories we just generated to distill EuroSAT down to just 1 image per class:
 ```bash
-python distillation.py --dataset=EuroSAT --ipc=1 --syn_steps=20 --expert_epochs=3 --max_start_epoch=5 --zca --lr_img=1000 --lr_lr=1e-05 --lr_teacher=0.01 --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
+python distillation.py --dataset=EuroSAT --ipc=1 --syn_steps=20 --expert_epochs=3 --max_start_epoch=5 --lr_img=1000 --lr_lr=1e-05 --lr_teacher=0.01 --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
 ```
 
 <img src='docs/animation.gif' width=600>
