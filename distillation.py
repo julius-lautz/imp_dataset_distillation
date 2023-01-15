@@ -110,10 +110,10 @@ def main(args):
     for ch in range(channel):
         print('real images channel %d, mean = %.4f, std = %.4f'%(ch, torch.mean(images_all[:, ch]), torch.std(images_all[:, ch])))
 
-    def get_images(c, n): # get random n images from class c
+    # Get random n images from class c
+    def get_images(c, n): 
         idx_shuffle = np.random.permutation(indices_class[c])[:n]
         return images_all[idx_shuffle]
-
 
     ### initialize the synthetic data ###
     # Initialize the synthetic data, number of ipc for each class (rn ipc = 1)
