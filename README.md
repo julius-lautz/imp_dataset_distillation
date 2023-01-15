@@ -33,11 +33,8 @@ The following command will then use the expert trajectories we just generated to
 python distillation.py --dataset=EuroSAT --ipc=1 --syn_steps=20 --expert_epochs=3 --max_start_epoch=5 --lr_img=1000 --lr_lr=1e-05 --lr_teacher=0.01 --buffer_path={path_to_buffer_storage} --data_path={path_to_dataset}
 ```
 
-<img src='docs/animation.gif' width=600>
+<div align="center"><img src='docs/animation.gif' width=1000></div>
 
-Please find a full list of hyper-parameters below:
-
-![image](https://user-images.githubusercontent.com/18726777/184226412-7bd0d577-225b-487c-8c9c-23f6462ca7d0.png)
 
 
 
